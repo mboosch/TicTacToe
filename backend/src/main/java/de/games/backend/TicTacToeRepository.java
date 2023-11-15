@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public class TicTacToeRepository {
     private List<Character> positions;
+    private int gameRound;
     private char player;
     private char computerPlayer;
 }

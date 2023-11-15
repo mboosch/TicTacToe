@@ -9,12 +9,16 @@ import java.util.List;
 @Service
 public class TicTacToeService {
     private final TicTacToeRepository repository;
+    private final Game game;
 
     public List<Character> getPosition() {
         return repository.getPositions();
     }
 
     public String saveMove(int move) {
+        if (repository.getPositions() == null) {
+            game.setupGame();
+        }
         List<Character> positions = repository.getPositions();
         positions.set(move, repository.getPlayer());
         repository.setPositions(positions);
