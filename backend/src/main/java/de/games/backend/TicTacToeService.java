@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public class TicTacToeService {
     private final TicTacToeRepository repository;
+    private final ComputerPlayer computerPlayer;
     private final Game game;
 
     public List<Character> getPosition() {
@@ -22,6 +23,7 @@ public class TicTacToeService {
         List<Character> positions = repository.getPositions();
         positions.set(move, repository.getPlayer());
         repository.setPositions(positions);
+        computerPlayer.makeMove();
 
         return "move was saved";
     }
