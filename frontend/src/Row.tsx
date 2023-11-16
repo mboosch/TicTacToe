@@ -6,6 +6,7 @@ export type RowProps = {
     position: string[]
     rowNumber: number
     postMove: (move:number) => void
+    gameStatus: string
 }
 
 export default function Row(props: RowProps)  {
@@ -19,7 +20,7 @@ export default function Row(props: RowProps)  {
     }}
 
     const toggle = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-        if ((props.position[index] === ' ' || props.position[index] === undefined)) {
+        if ((props.position[index] === ' ' || props.position[index] === undefined) && props.gameStatus === 'ongoing') {
             props.postMove(index)
         }
     }

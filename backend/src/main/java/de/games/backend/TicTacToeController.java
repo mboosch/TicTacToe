@@ -10,10 +10,16 @@ import java.util.List;
 @RequestMapping("/api/tictactoe/")
 public class TicTacToeController {
     private final TicTacToeService service;
+    private final Game game;
 
     @GetMapping
     public List<Character> getPosition() {
         return service.getPosition();
+    }
+
+    @GetMapping("status")
+    public String checkGameStatus() {
+        return game.checkGameStatus();
     }
 
     @PostMapping("{move}")
