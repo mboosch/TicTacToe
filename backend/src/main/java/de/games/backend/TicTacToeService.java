@@ -23,8 +23,10 @@ public class TicTacToeService {
         List<Character> positions = repository.getPositions();
         positions.set(move, repository.getPlayer());
         repository.setPositions(positions);
-        computerPlayer.makeMove();
-
+        if (game.checkGameStatus().equals("ongoing")) {
+            repository.setGameRound(repository.getGameRound() + 1);
+            computerPlayer.makeMove();
+        }
         return "move was saved";
     }
 }

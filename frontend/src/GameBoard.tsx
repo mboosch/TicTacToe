@@ -4,7 +4,7 @@ import useTicTacToe from "./hooks/useTicTacToe";
 import Row from "./Row";
 
 export default function GameBoard() {
-    const {position, postMove, gameStatus} = useTicTacToe()
+    const {position, postMove, gameStatus, resetBoard} = useTicTacToe()
 
     return (
         <div className='container'>
@@ -18,6 +18,7 @@ export default function GameBoard() {
             {gameStatus === "playersVictory" ? <h2 className={"gameEnd"}>Du hast gewonnen!</h2> :
                 gameStatus === "computersVictory" ? <h2 className={"gameEnd"}>Du hast verloren.</h2> :
                     gameStatus === "draw" ? <h2 className={"gameEnd"}>Das Spiel ist unentschieden.</h2> : null}
+            <button className='reset' onClick={() => resetBoard()}>Spiel neu starten</button>
         </div>
     );
 }

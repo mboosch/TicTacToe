@@ -22,6 +22,12 @@ public class TicTacToeController {
         return game.checkGameStatus();
     }
 
+    @GetMapping("reset")
+    public String resetGame() {
+        game.setupGame();
+        return "restarted game";
+    }
+
     @PostMapping("{move}")
     public String saveMove(@PathVariable int move) {
         return service.saveMove(move);

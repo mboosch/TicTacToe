@@ -32,3 +32,21 @@
 .row {
     display: flex;
 }
+
+.reset {
+    width: 250px;
+    height: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50px;
+    background: #1f3540;
+    font-size: 26px;
+    color: #61dafb;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.gameEnd {
+    color: aliceblue;
+}

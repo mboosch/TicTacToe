@@ -32,6 +32,14 @@ export default function useTicTacToe() {
             .catch(error => console.error(error))
     }
 
-    return {position, postMove, gameStatus}
+    const resetBoard = () => {
+        return axios.get('api/tictactoe/reset')
+            .then(getPosition)
+            .then(checkGameStatus)
+            .catch(error => console.error(error))
+    }
+
+
+    return {position, postMove, gameStatus, resetBoard}
 }
 
