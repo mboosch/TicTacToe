@@ -33,4 +33,19 @@ public class VictoryConditions {
         }
         return false;
     }
+
+    public int findMissingElementForTwoMetVictoryConditions(List<Integer> victoryCondition, List<Integer> playersPositions) {
+        int matchingCount = 0;
+        int missingElement = 0;
+
+        for (int position : victoryCondition) {
+            if (playersPositions.contains(position)) {
+                matchingCount++;
+            } else missingElement = position;
+        }
+
+        if (matchingCount == 2) {
+            return missingElement;
+        } else return -1;
+    }
 }
