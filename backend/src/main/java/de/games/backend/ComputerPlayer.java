@@ -18,7 +18,9 @@ public class ComputerPlayer {
             if (move == -1) {
                 move = strategies.checkForImmediateWinOrLoss(repository.getPlayer());
             }
-
+            if (move == -1) {
+                move = strategies.checkForDangerousPosition();
+            }
             if (move == -1) {
                 move = strategies.generateRandomMove();
             }
